@@ -2,33 +2,43 @@ const { Neuron } = require("./Neuron");
 
 test("this is testing the distanceTo method", ()=>{
     const a = new Neuron({
-        x:1,
-        y:1,
-        z:1,
+        location:{
+            x:1,
+            y:1,
+            z:1,
+        }
     })
 
     const b = new Neuron({
-        x:1,
-        y:1,
-        z:1,
+        location: {
+            x:1,
+            y:1,
+            z:1,
+        }
     })
 
     const c = new Neuron({
-        x:0,
-        y:0,
-        z:0,
+        location: {
+            x:0,
+            y:0,
+            z:0,
+        }
     });
 
     const d = new Neuron({
-        x:-1,
-        y: 5,
-        z: 0,
+        location:{
+            x:-1,
+            y: 5,
+            z: 0,
+        }
     })
 
     const e = new Neuron({
-        x:1,
-        y:1,
-        z:0,
+        location: {
+            x:1,
+            y:1,
+            z:0,
+        }
     })
 
     expect(a.distanceTo(a)).toBe(0);

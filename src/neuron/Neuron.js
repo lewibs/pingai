@@ -1,27 +1,21 @@
 const { EventDispatcher } = require("../events/EventDispatcher");
 const { FIRE } = require("../events/events");
+const { Vector3D } = require("./Vector3D");
 
 class Neuron extends EventDispatcher {
     isNeuron = true;
 
     sensitivity = 0;
-
-    x = 0;
-    y = 0;
-    z = 0;
+    location = new Vector3D(0,0,0);
 
     constructor({
-        x,
-        y,
-        z,
+        location,
         sensitivity,
     }) {
         super();
-        this.x = x;
-        this.y = y;
-        this.z = z;
-
-        this.sensitivity = sensitivity;
+        
+        this.location = new Vector3D(location.x, location.y, location.z) || this.location;
+        this.sensitivity = sensitivity || this.sensitivity;
 
         this.addEventListener(FIRE, (e)=>{this.handlePing(e)})
     }
@@ -44,13 +38,7 @@ class Neuron extends EventDispatcher {
     }
 
     distanceTo(neuron) {
-        return (
-            Math.sqrt(
-                Math.pow(neuron.x - this.x, 2)
-                + Math.pow(neuron.y - this.y, 2)
-                + Math.pow(neuron.z - this.z, 2)
-            )
-        )
+        return this.location.distanceTo(neuron)
     }
 }
 
