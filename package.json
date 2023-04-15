@@ -1,0 +1,26 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "AI which uses 3d space to determinee importance of nodes",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lewibs/node-template.git"
+  },
+  "keywords": [
+    "template"
+  ],
+  "author": "lewibs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lewibs/node-template/issues"
+  },
+  "homepage": "https://github.com/lewibs/node-template#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
