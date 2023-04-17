@@ -1,8 +1,8 @@
-const { EventDispatcher } = require("../events/EventDispatcher");
+const { PingDispatcher } = require("../events/PingDispatcher");
 const { Neuron } = require("./Neuron");
-const { Vector3D } = require("./Vector3D");
+const { Vector3D } = require("../threeD/Vector3D");
 
-class NeuronGroup extends EventDispatcher {
+class NeuronGroup extends PingDispatcher {
     neurons = [];
 
     sensitivity = 0;

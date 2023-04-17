@@ -22,5 +22,8 @@
   "homepage": "https://github.com/lewibs/node-template#readme",
   "devDependencies": {
     "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "pubsub-js": "^1.9.4"
   }
 }

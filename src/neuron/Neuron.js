@@ -1,8 +1,8 @@
-const { EventDispatcher } = require("../events/EventDispatcher");
-const { FIRE } = require("../events/events");
-const { Vector3D } = require("./Vector3D");
+const { PingDispatcher } = require("../events/PingDispatcher");
+const { NEURON_FIRE } = require("../events/pings");
+const { Vector3D } = require("../threeD/Vector3D");
 
-class Neuron extends EventDispatcher {
+class Neuron extends PingDispatcher {
     isNeuron = true;
 
     sensitivity = 0;
@@ -17,11 +17,11 @@ class Neuron extends EventDispatcher {
         this.location = new Vector3D(location.x, location.y, location.z) || this.location;
         this.sensitivity = sensitivity || this.sensitivity;
 
-        this.addEventListener(FIRE, (e)=>{this.handlePing(e)})
+        this.addEventListener(NEURON_FIRE, (e)=>{this.handlePing(e)})
     }
 
     fire() {
-        this.dispatchEvent({ type: FIRE })
+        this.dispatchEvent({ type: NEURON_FIRE })
     }
 
     handlePing(event) {
@@ -30,15 +30,11 @@ class Neuron extends EventDispatcher {
             return;
         }
 
-        if (event.type === FIRE) {
+        if (event.type === NEURON_FIRE) {
             if (this.distanceTo(event.target) <= this.sensitivity) {
                 console.log("close enough to do something?")
             }
         }
-    }
-
-    distanceTo(neuron) {
-        return this.location.distanceTo(neuron)
     }
 }
 
